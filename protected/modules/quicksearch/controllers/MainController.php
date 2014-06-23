@@ -179,17 +179,18 @@ class MainController extends ModuleUserController {
 			}
 		}
 
-        $location = (int) Yii::app()->request->getParam('location');
-        $subLocation = (int) Yii::app()->request->getParam('sublocation');
+        $location = (int) Yii::app()->request->getParam('location_id');
+        $subLocation = (int) Yii::app()->request->getParam('sublocation_id');
         if($subLocation) {
-            $criteria->addCondition('sublocation_id = :sublocation_id');
+            $criteria->addCondition('sublocation_id = :sublocation_id AND location_id = :location_id');
             $criteria->params[':sublocation_id'] = $subLocation;
+            $criteria->params[':location_id'] = $location;
         }
         elseif($location) {
             $criteria->addCondition('location_id = :location_id');
             $criteria->params[':location_id'] = $location;
         }
- 
+
 
         $landSquare = Yii::app()->request->getParam('land_square');
         if($landSquare) {
