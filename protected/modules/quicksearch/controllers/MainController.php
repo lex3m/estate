@@ -186,7 +186,8 @@ class MainController extends ModuleUserController {
             $criteria->params[':sublocation_id'] = $subLocation;
         }
         elseif($location) {
-
+            $criteria->addCondition('location_id = :location_id');
+            $criteria->params[':location_id'] = $location;
         }
  
 
@@ -421,18 +422,18 @@ class MainController extends ModuleUserController {
 //				), false, true);
 //			}
 //			else {
-				$this->renderPartial('index', array(
+			/*	$this->renderPartial('index', array(
 					'criteria' => $criteria,
 					'apCount' => $apCount,
 					'filterName' => $filterName,
-				));
+				));*/
 //			}
 		} else {
-			$this->render('index', array(
+		/*	$this->render('index', array(
 				'criteria' => $criteria,
 				'apCount' => $apCount,
 				'filterName' => $filterName,
-			));
+			));*/
 		}
 	}
 
