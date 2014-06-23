@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /*search?page=*
 Allow: /*specialoffers?page=*
- 88888
+ 8888800
 Disallow: index.php
 Disallow: /*printable=*
 Disallow: /*?page=*
