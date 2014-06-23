@@ -1,0 +1,33 @@
+Licenses:
+(Module, path, license)
+Twitter Bootstrap, /protected/extensions/bootstrap/assets, Apache License v2.0, http://www.apache.org/licenses/LICENSE-2.0
+CKEditor, /protected/extensions/ckeditor/assets, LGPL, http://www.gnu.org/licenses/lgpl.html
+EOAuth, /protected/extensions/eoauth, MIT, http://www.opensource.org/licenses/mit-license.php
+LightOpenID, /protected/extensions/lightopeni, MIT, http://www.opensource.org/licenses/mit-license.php
+EMailer, /protected/extensions/mailer/EMailer.php, LGPL, http://www.gnu.org/licenses/lgpl.html
+Phpmailer, /protected/extensions/mailer/phpmailer, LGPL,  http://www.gnu.org/licenses/lgpl.html
+CssMin, /protected/extensions/minify/CssMin.php, MIT, http://www.opensource.org/licenses/mit-license.php
+JSMinPlus, /protected/extensions/minify/JSMinPlus.php, LGPL, http://www.gnu.org/licenses/lgpl.html
+PHPQRCode, /protected/extensions/qrcode, LGPL, http://www.gnu.org/licenses/lgpl.html
+fancybox, /protected/modules/fancybox/assets, /protected/modules/gallery/assets, MIT
+JQuery Corner, /js/jquery.corner.js, MIT, http://www.opensource.org/licenses/mit-license.php
+Nivo Slider, /js/slider, MIT, http://www.opensource.org/licenses/mit-license.php
+Jeditable, /js/jquery.jeditable.js, MIT, http://www.opensource.org/licenses/mit-license.php
+Jquery Multiselect, /js/jquery.multiselect.min.js, MIT, http://www.opensource.org/licenses/mit-license.php
+JCarousel, /protected/similarads/assets/jcarousel, MIT, http://www.opensource.org/licenses/mit-license.php
+GoogleTranslater, /protected/components/GoogleTranslater.php, MIT, http://www.opensource.org/licenses/mit-license.php
+CImageHandler, /protected/modules/images/components/CImageHandler.php, MIT, http://www.opensource.org/licenses/mit-license.php
+EAjaxUpload, /protected/extensions/EAjaxUpload, BSD, http://www.opensource.org/licenses/bsd-license.php
+PrettyPhoto, /protected/modules/images/assets/prettyphoto, Creative Commons 2.5, http://creativecommons.org/licenses/by/2.5/
+jQuery SWFObject Plugin, /js/jquery.swfobject.1-1-1.min.js, MIT, http://jquery.thewikies.com/swfobject/license
+panorama360, /js/jquery.panorama360.js, MIT, http://www.opensource.org/licenses/mit-license.php
+Yii framework, /framework, BSD, http://www.yiiframework.com/license/
+
+
+Media content for the site is used according to the cc-by-2 License. Authors are:
+Kavanjin Croatia Apartments - http://www.flickr.com/photos/39404185@N03
+scarletgreen - http://www.flickr.com/photos/9160678@N06
+Jeremy Levine Design - http://www.flickr.com/photos/9160678@N06
+tommerton2010 - http://www.flickr.com/photos/58842866@N08
+
+Map icons author is Nicolas Mollet - http://mapicons.nicolasmollet.com

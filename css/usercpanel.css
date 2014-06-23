@@ -1,0 +1,44 @@
+.usercpanel-left {
+    width: 200px;
+}
+
+.usercpanel-right {
+    width: 740px;
+}
+
+#usermenu ul
+{
+    padding:6px 3px 5px;
+    margin:0px;
+}
+
+#usermenu ul li
+{
+    display: block;
+}
+
+#usermenu ul li a
+{
+    color: #204782;
+    background-color:transparent;
+    font-size:12px;
+    font-weight:bold;
+    text-decoration:none;
+    padding:5px 8px;
+}
+
+#usermenu ul li:hover
+{
+    color: #204782;
+    background-color:#EFF4FA;
+    text-decoration:none;
+}
+#usermenu ul li.active
+{
+    color: #204782;
+    background-color:#E2EAF5;
+    text-decoration:none;
+}
+.qq-upload-list{
+    display: none;
+}

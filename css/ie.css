@@ -1,0 +1,13 @@
+button.search-input-new > span {
+	position: relative;
+	top: -2px;
+}
+
+button.search-input-new >.ui-icon-triangle-2-n-s {
+	position: relative;
+	top: 2px;
+}
+
+button.search-input-new {
+	height: 22px;
+}

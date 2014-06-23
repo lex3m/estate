@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /*search?page=*
+Allow: /*specialoffers?page=*
+
+
+Disallow: index.php
+Disallow: /*printable=*
+Disallow: /*?page=*
+Disallow: /*search?page=*&sort=*
+Disallow: /*search?page=*&sort=*&ls=*
+Disallow: /*search?*&ls=*
+Disallow: /*search?*&sort=*
+Disallow: /*specialoffers?page=*&sort=*
+Disallow: /*specialoffers?page=*&sort=*&ls=*
+Disallow: /*specialoffers?*&ls=*
+Disallow: /*specialoffers?*&sort=*
+Disallow: /*?sort=*
+Disallow: /*?ls=*
+Disallow: /*comparisonList
+Disallow: /*booking/add*
+Disallow: /*complain/add*
+Disallow: /*apartments/sendEmail*

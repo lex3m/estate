@@ -1,0 +1,57 @@
+ul.yiiPager {
+    border: 0 none;
+    display: inline;
+    font: 14px/100% 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding-top: 5px;
+	float: right;
+}
+ul.yiiPager li {
+    display: inline;
+}
+ul.yiiPager a:link, ul.yiiPager a:visited {
+    color: #204782;
+    padding: 1px 6px;
+    text-decoration: underline;
+}
+
+ul.yiiPager .page a {
+    text-decoration: underline;
+}
+ul.yiiPager a:hover {
+    color: #852432 !important;
+    text-decoration: underline;
+}
+ul.yiiPager .selected a {
+    /*background: url("../images/design/active.gif") repeat-x scroll 0 0 transparent;*/
+   	background-color: #274f8c !important;
+	background-image: -moz-linear-gradient(top, #274f8c 0%, #5b90df 100%) !important;
+	background-image: -webkit-linear-gradient(top, #274f8c 0%, #5b90df 100%) !important;
+	background-image: -o-linear-gradient(top, #274f8c 0%, #5b90df 100%) !important;
+	background-image: -ms-linear-gradient(top, #274f8c 0% ,#5b90df 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#274f8c', endColorstr='#5b90df',GradientType=0 ) !important;
+	background-image: linear-gradient(top, #274f8c 0% ,#5b90df 100%) !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+ul.yiiPager .selected a:hover {
+    /*background: url("../images/design/active.gif") repeat-x scroll 0 0 transparent;*/
+	background-color: #5b90df !important;
+	background-image: -moz-linear-gradient(top, #5b90df 0%, #274f8c 100%) !important;
+	background-image: -webkit-linear-gradient(top, #5b90df 0%, #274f8c 100%) !important;
+	background-image: -o-linear-gradient(top, #5b90df 0%, #274f8c 100%) !important;
+	background-image: -ms-linear-gradient(top, #5b90df 0% ,#274f8c 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b90df', endColorstr='#274f8c',GradientType=0 ) !important;
+	background-image: linear-gradient(top, #5b90df 0% ,#274f8c 100%) !important;
+}
+
+ul.yiiPager .hidden a {
+    color: #888888;
+    text-decoration: none !important;
+}
+ul.yiiPager .hidden a:hover {
+    color: #888888 !important;
+}
+ul.yiiPager .first, ul.yiiPager .last {
+    display: none;
+}
