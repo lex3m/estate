@@ -2,7 +2,7 @@ User-agent: *
 Allow: /*search?page=*
 Allow: /*specialoffers?page=*
 
-12345
+12345678
 Disallow: index.php
 Disallow: /*printable=*
 Disallow: /*?page=*
