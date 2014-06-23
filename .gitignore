@@ -4,5 +4,7 @@ protected/runtime/*
 !protected/runtime/.gitignore
 protected/config/*
 !protected/config/.gitignore
+protected/extensions/QPdfJs
+!protected/extensions/QPdfJs/.gitignore
 protected/data/*.db
 themes/classic/views/

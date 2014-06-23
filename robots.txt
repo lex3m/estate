@@ -2,7 +2,6 @@ User-agent: *
 Allow: /*search?page=*
 Allow: /*specialoffers?page=*
 
-
 Disallow: index.php
 Disallow: /*printable=*
 Disallow: /*?page=*
