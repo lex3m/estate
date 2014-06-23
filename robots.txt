@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /*search?page=*
 Allow: /*specialoffers?page=*
- 79
+
 Disallow: index.php
 Disallow: /*printable=*
 Disallow: /*?page=*
