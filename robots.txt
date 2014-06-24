@@ -20,3 +20,4 @@ Disallow: /*booking/add*
 Disallow: /*complain/add*
 Disallow: /*apartments/sendEmail*
 
+asdf
