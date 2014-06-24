@@ -186,7 +186,8 @@ class MainController extends ModuleUserController {
             $criteria->params[':sublocation_id'] = $subLocation;
         }
         elseif($location) {
-
+            $criteria->addCondition('location_id = :location_id');
+            $criteria->params[':location_id'] = $location;
         }
  
 
