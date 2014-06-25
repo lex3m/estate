@@ -142,7 +142,7 @@ class MainController extends ModuleUserController{
 				'user' => $user,
 				'isFancy' => true,
 			), false, true);
-		} else{
+		} else {
 			$this->render('simpleform', array(
 				'model' => $model,
 				'type' => $type,

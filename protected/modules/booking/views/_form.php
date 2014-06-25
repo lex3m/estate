@@ -33,6 +33,76 @@
 	<?php echo $form->error($model,'useremail'); ?>
 </div>
 
+<div class="row">
+        <?php echo $form->labelEx($model,'location_booking'); ?>
+        <?php $locations = Location::getLocationArray();?>
+        <?php
+        echo CHtml::dropDownList(
+            'location_booking',
+            'Выберите город',
+            $locations,
+            array('id' => 'location_booking_'.$isFancy,
+                'ajax' => array(
+                    'type'=>'GET', //request type
+                    'url'=>$this->createUrl('/apartments/main/getSublocations'), //url to call.
+                    'data'=>'js:"ap_location="+$("#location_booking_'.$isFancy.'").val()',
+                    'success'=>"function(result) {
+                          $('#subLocation_booking_".$isFancy."').html(result);
+						  $('#subLocation_booking_".$isFancy."').change();
+						}"
+                )
+            )
+        );
+
+        ?>
+        <?php echo $form->error($model,'location_booking'); ?>
+ </div>
+
+<div class="row">
+        <?php echo $form->labelEx($model,'subLocation_booking'); ?>
+        <?php
+        echo CHtml::dropDownList(
+            'subLocation_booking',
+            '',
+            array(),
+            array('id'=>'subLocation_booking_'.$isFancy) //$fieldClass.
+        );
+
+        ?>
+        <?php echo $form->error($model,'subLocation_booking'); ?>
+</div>
+<?php echo $form->labelEx($model,'type');
+      $types = ApartmentObjType::model()->findAll();
+?>
+    <table>
+        <tbody>
+        <?php
+        $z=0;
+        for($i=0; $i<count($types)/2; $i++){ ?>
+        <tr>
+           <?php for($index=0; $index<2; $index++){
+             if (isset($types[$z])){ ?>
+            <td>
+                <input type="checkbox" value="<?php echo $types[$z]->id; ?>" name="<?php echo $z; ?>" id="<?php echo $z; ?>" class="regcolumn"><input type="hidden" value="false" name="<?php echo $z; ?>">
+                <label for="<?php echo $z; ?>"><?php echo $types[$z]->name_ru; ?></label>
+            </td>
+            <?php } ?>
+           <?php
+           $z++;
+           } ?>
+        </tr>
+        <?php
+
+        } ?>
+
+        </tbody></table>
+
+<div class="row">
+     <?php echo $form->labelEx($model,'berths'); ?>
+     <?php echo $form->textField($model,'berths'); ?>
+     <?php echo $form->error($model,'berths'); ?>
+</div>
+
 <?php if ($isSimpleForm) { echo '<div id="rent_form">'; } ?>
 <?php
 	$useBookingCalendar = false;

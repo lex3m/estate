@@ -18,12 +18,6 @@ $this->pageTitle = tt('Booking apartment');
 		<p class="note"><?php echo Yii::t('common', 'Fields with <span class="required">*</span> are required.'); ?></p>
 		<?php echo $form->errorSummary($model); ?>
 
-		<div class="row">
-			<?php echo $form->labelEx($model,'type'); ?>
-			<?php echo $form->dropDownList($model,'type', $type, array('class' => 'width200', 'id'=>'booking_ap_type', 'onChange' => 'apTypeChange(this)')); ?>
-			<?php echo $form->error($model,'type'); ?>
-		</div>
-
 		<?php
 			$this->renderPartial('_form', array(
 				'model' => $model,
@@ -31,6 +25,7 @@ $this->pageTitle = tt('Booking apartment');
 				'isGuest' => Yii::app()->user->isGuest,
 				'isSimpleForm' => true,
 				'user' => $user,
+                'isFancy' => $isFancy,
 			));
 		?>
 

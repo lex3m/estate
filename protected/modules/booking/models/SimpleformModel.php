@@ -19,6 +19,9 @@ class SimpleformModel extends CFormModel {
 	public $username;
 	public $comment;
 	public $useremail;
+    public $berths;
+    public $location_booking;
+    public $subLocation_booking;
 	public $phone;
 	public $date_start;
 	public $date_end;
@@ -48,7 +51,7 @@ class SimpleformModel extends CFormModel {
 			array('useremail', 'myUserEmailValidator'),
 			array('useremail, username, phone', 'length', 'max' => 128),
 			array('phone', 'required'),
-			array('comment, type', 'safe'),
+			array('comment, type, location_booking, subLocation_booking, berths', 'safe'),
 
 			array('verifyCode', (Yii::app()->user->isGuest) ? 'required' : 'safe'),
 			array('verifyCode', 'captcha', 'allowEmpty'=> !(Yii::app()->user->isGuest)),
@@ -92,9 +95,12 @@ class SimpleformModel extends CFormModel {
 			'rooms' => Yii::t('common', 'Number of rooms'),
 			'type' => Yii::t('common', 'I want'),
 			'verifyCode' => tc('Verify Code'),
+            'location_booking' => tt("Choose location",'apartments'),
+            'subLocation_booking' => tt('Choose sublocation', "apartments"),
+            'berths' => tt('Number of berths', 'apartments'),
 		);
 	}
-
+ 
     public function getTypeName(){
         return $this->type;
         //$types = Apartment::getTypesWantArray();

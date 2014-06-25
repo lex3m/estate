@@ -3,7 +3,7 @@ $locationDropDownArray = CHtml::listData(Location::getLocationArray(),'id','name
 array_unshift($locationDropDownArray,  Yii::t('common', 'Select location'));
 ?>
 <div class="<?php echo $divClass; ?>">
-        <span class="search"><div class="<?php echo $textClass; ?>"><?php echo tc('Country') ?>:</div></span>
+        <span class="search"><div class="<?php echo $textClass; ?>"><?php echo tt("Choose location",'apartments'); ?>:</div></span>
 <?php $locations = Location::getLocationArray();?>
 <?php
 echo CHtml::dropDownList(
@@ -34,7 +34,7 @@ echo CHtml::dropDownList(
 ?>
 </div>
 <div class="<?php echo $divClass; ?>">
-    <span class="search"><div class="<?php echo $textClass; ?>"><?php echo Yii::t('common', 'City') ?>:</div></span>
+    <span class="search"><div class="<?php echo $textClass; ?>"><?php echo tt("Choose sublocation",'apartments'); ?>:</div></span>
 
     <?php
 
