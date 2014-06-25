@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /*search?page=*
 Allow: /*specialoffers?page=*
-wer77
 
 Disallow: index.php
 Disallow: /*printable=*
@@ -20,4 +19,3 @@ Disallow: /*comparisonList
 Disallow: /*booking/add*
 Disallow: /*complain/add*
 Disallow: /*apartments/sendEmail*
-
