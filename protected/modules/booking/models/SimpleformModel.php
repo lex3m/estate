@@ -20,6 +20,7 @@ class SimpleformModel extends CFormModel {
 	public $comment;
 	public $useremail;
     public $berths;
+    public $square;
     public $location_booking;
     public $subLocation_booking;
 	public $phone;
@@ -31,6 +32,7 @@ class SimpleformModel extends CFormModel {
 	public $password;
 	public $email;
 	public $type;
+    public $budget;
 
 	public $time_inVal;
 	public $time_outVal;
@@ -42,16 +44,16 @@ class SimpleformModel extends CFormModel {
 
 	public function rules() {
 		return array(
-			array('date_start, date_end, time_in, time_out, type, ' . (Yii::app()->user->isGuest ? 'useremail, username' : ''), 'required', 'on' => 'forrent'),
-			array('type, ' . (Yii::app()->user->isGuest ? 'useremail, username' : ''), 'required', 'on' => 'forbuy'),
-			array('time_in, time_out', 'numerical', 'integerOnly' => true, 'on' => 'forrent'),
+			array('location_booking,' . (Yii::app()->user->isGuest ? 'useremail, username' : ''), 'required', 'on' => 'forrent'),
+			array('type' . (Yii::app()->user->isGuest ? 'useremail, username' : ''), 'required', 'on' => 'forbuy'),
+			//array('time_in, time_out', 'numerical', 'integerOnly' => true, 'on' => 'forrent'),
 			array('useremail', 'email'),
-			array('date_start, date_end', 'date', 'format' => Booking::getYiiDateFormat(), 'on' => 'forrent'),
-			array('date_start, date_end', 'myDateValidator', 'on' => 'forrent'),
+			//array('date_start, date_end', 'date', 'format' => Booking::getYiiDateFormat(), 'on' => 'forrent'),
+			//array('date_start, date_end', 'myDateValidator', 'on' => 'forrent'),
 			array('useremail', 'myUserEmailValidator'),
 			array('useremail, username, phone', 'length', 'max' => 128),
-			array('phone', 'required'),
-			array('comment, type, location_booking, subLocation_booking, berths', 'safe'),
+			//array('phone', 'required'),
+			array('type, date_start, date_end, time_in, time_out, comment, type, subLocation_booking, berths', 'safe'),
 
 			array('verifyCode', (Yii::app()->user->isGuest) ? 'required' : 'safe'),
 			array('verifyCode', 'captcha', 'allowEmpty'=> !(Yii::app()->user->isGuest)),
@@ -98,6 +100,8 @@ class SimpleformModel extends CFormModel {
             'location_booking' => tt("Choose location",'apartments'),
             'subLocation_booking' => tt('Choose sublocation', "apartments"),
             'berths' => tt('Number of berths', 'apartments'),
+            'square' => tt('Square', 'apartments'),
+            'budget' => tt('Budget', 'apartments'),
 		);
 	}
  

@@ -105,8 +105,9 @@ class MainController extends ModuleUserController{
 				$model->scenario = 'forbuy';
 			}
 
+
 			if($model->validate()){
-                if($_POST['SimpleformModel']['type'] != Apartment::TYPE_RENTING){
+               /* if($_POST['SimpleformModel']['type'] != Apartment::TYPE_RENTING){
                     $model->time_inVal = NULL;
                     $model->time_outVal = NULL;
                     $model->date_start = NULL;
@@ -114,10 +115,10 @@ class MainController extends ModuleUserController{
                 }elseif ($model->time_in || $model->time_out) {
 					$model->time_inVal = $this->getI18nTimeIn($model->time_in);
 					$model->time_outVal = $this->getI18nTimeOut($model->time_out);
-				}
+				}*/
 
-				$types = Apartment::getI18nTypesArray();
-				$model->type = $types[$model->type];
+				//$types = Apartment::getI18nTypesArray();
+				//$model->type = $types[$model->type];
 
 				$notifier = new Notifier;
                 $notifier->raiseEvent('onNewBooking', $model);

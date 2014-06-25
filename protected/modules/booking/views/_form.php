@@ -38,34 +38,34 @@
         <?php $locations = Location::getLocationArray();?>
         <?php
         echo CHtml::dropDownList(
-            'location_booking',
-            'Выберите город',
+            'SimpleformModel[location_booking]',
+            '',
             $locations,
-            array('id' => 'location_booking_'.$isFancy,
+            array('id' => 'SimpleformModel_location_booking',
                 'ajax' => array(
                     'type'=>'GET', //request type
                     'url'=>$this->createUrl('/apartments/main/getSublocations'), //url to call.
-                    'data'=>'js:"ap_location="+$("#location_booking_'.$isFancy.'").val()',
+                    'data'=>'js:"ap_location="+$("#SimpleformModel_location_booking").val()',
                     'success'=>"function(result) {
-                          $('#subLocation_booking_".$isFancy."').html(result);
-						  $('#subLocation_booking_".$isFancy."').change();
+                          $('#SimpleformModel_subLocation_booking').html(result);
+						  $('#SimpleformModel_subLocation_booking').change();
 						}"
                 )
             )
         );
 
         ?>
-        <?php echo $form->error($model,'location_booking'); ?>
+        <?php echo $form->error($model,'SimpleformModel_location_booking'); ?>
  </div>
 
 <div class="row">
         <?php echo $form->labelEx($model,'subLocation_booking'); ?>
         <?php
         echo CHtml::dropDownList(
-            'subLocation_booking',
+            'SimpleformModel_subLocation_booking',
             '',
-            array(),
-            array('id'=>'subLocation_booking_'.$isFancy) //$fieldClass.
+            array('0'=>tt('Choose sublocation', "apartments")),
+            array('id'=>'SimpleformModel_subLocation_booking') //$fieldClass.
         );
 
         ?>
@@ -103,6 +103,18 @@
      <?php echo $form->error($model,'berths'); ?>
 </div>
 
+<div class="row">
+     <?php echo $form->labelEx($model,'square'); ?>
+     <?php echo $form->textField($model,'square'); ?>м<sup>2</sup>
+     <?php echo $form->error($model,'square'); ?>
+</div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'budget'); ?>
+        <?php echo $form->textField($model,'budget'); ?>
+        <?php echo $form->error($model,'budget'); ?>
+    </div>
+
 <?php if ($isSimpleForm) { echo '<div id="rent_form">'; } ?>
 <?php
 	$useBookingCalendar = false;
@@ -118,7 +130,7 @@
 		', CClientScript::POS_END);
 	}
 ?>
-<div class="row">
+<!--<div class="row">
 	<div class="full-multicolumn-first">
 		<?php echo $form->labelEx($model,'date_start'); ?>
 
@@ -217,7 +229,7 @@
 		<?php echo $form->error($model,'time_out'); ?>
 	</div>
 </div>
-
+-->
 <?php if ($isSimpleForm) { echo '</div>'; } ?>
 
 <div class="row">
