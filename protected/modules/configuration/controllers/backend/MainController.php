@@ -83,7 +83,8 @@ class MainController extends ModuleAdminController {
 				if (
 					$model->name == 'useTypeRent' || $model->name == 'useTypeSale' ||
 					$model->name == 'useTypeRenting' || $model->name == 'useTypeBuy' ||
-					$model->name == 'useTypeChange'
+					$model->name == 'useTypeChange' || $model->name == 'useTypeMortgage' ||
+                    $model->name == 'useTypePrivatisation'
 				) {
 					if (count(Apartment::availableApTypesIds()) == 1 && $action == 'deactivate') {
 						if(!Yii::app()->request->isAjaxRequest){

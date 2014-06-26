@@ -185,7 +185,7 @@ $baseUrl = Yii::app()->baseUrl;
 		        </div>
 				
 				<div class="zayavka shadow">
-				    <a href="#">Заявка на подбор</a>
+				    <a href="/booking/request">Заявка на подбор</a>
 				</div>
 				
 				<?php $this->widget('TypesEstateWidget', array()); ?>

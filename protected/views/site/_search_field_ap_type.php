@@ -1,5 +1,5 @@
 <div class="<?php echo $divClass; ?>">
-    <span class="search"><div class="<?php echo $textClass; ?>"><?php echo tt('Search in section', 'common'); ?>:</div></span>
+    <span class="search"><div class="<?php echo $textClass; ?>"><?php echo tt('Search by type of service', 'common'); ?>:</div></span>
 	<span class="search">
 		<?php
         $data = SearchForm::apTypes();

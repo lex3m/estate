@@ -32,6 +32,10 @@ class Apartment extends ParentModel {
     const TYPE_BUY = 4;
 	const TYPE_CHANGE = 5;
     const TYPE_DEFAULT = 1;
+    /**Additional apartment types**/
+    const TYPE_MORTGAGE = 6;
+    const TYPE_PRIVATISATION = 7;
+
 
     private static $_type_arr;
 	private static $_apartment_arr;
@@ -45,6 +49,9 @@ class Apartment extends ParentModel {
     const PRICE_RENTING = 6;
     const PRICE_BUY = 7;
     const PRICE_CHANGE = 8;
+    /**Additional price types**/
+    const PRICE_MORTGAGE = 9;
+    const PRICE_PRIVATISATION = 10;
 
 	const STATUS_INACTIVE = 0;
 	const STATUS_ACTIVE = 1;
@@ -728,6 +735,14 @@ class Apartment extends ParentModel {
 			case self::TYPE_CHANGE:
 				$this->price_type = self::PRICE_CHANGE;
 				break;
+
+            case self::TYPE_MORTGAGE:
+                $this->price_type = self::PRICE_MORTGAGE;
+                break;
+
+            case self::TYPE_PRIVATISATION:
+                $this->price_type = self::PRICE_PRIVATISATION;
+                break;
 		}
 
         if(isset($_POST['set_period_activity']) && $_POST['set_period_activity'] == 1 && $this->period_activity){
@@ -956,6 +971,12 @@ class Apartment extends ParentModel {
 		if (param('useTypeChange', 1)) {
 			$types[self::TYPE_CHANGE] = tt('Exchange', 'apartments');
 		}
+        if (param('useTypeMortgage', 1)) {
+            $types[self::TYPE_MORTGAGE] = tt('Mortgage', 'apartments');
+        }
+        if (param('useTypePrivatisation', 1)) {
+            $types[self::TYPE_PRIVATISATION] = tt('Privatisation', 'apartments');
+        }
         return $types;
     }
 
@@ -988,6 +1009,12 @@ class Apartment extends ParentModel {
 		if (param('useTypeChange', 1)) {
 			$vs[self::TYPE_CHANGE] = 'Want exchange';
 		}
+        if (param('useTypeMortgage', 1)) {
+            $vs[self::TYPE_MORTGAGE] = 'Want mortgage';
+        }
+        if (param('useTypePrivatisation', 1)) {
+            $vs[self::TYPE_PRIVATISATION] = 'Want privatisation';
+        }
 
 		foreach($vs as $type => $langField){
 			$types[$type][$field] = tt($langField, 'apartments', $lang);
@@ -1012,6 +1039,12 @@ class Apartment extends ParentModel {
 		if (param('useTypeChange', 1)) {
 			$types[self::TYPE_CHANGE] = tt('Want exchange', 'apartments');
 		}
+        if (param('useTypeMortgage', 1)) {
+            $types[self::TYPE_MORTGAGE] = tt('Want mortgage', 'apartments');
+        }
+        if (param('useTypePrivatisation', 1)) {
+            $types[self::TYPE_PRIVATISATION] = tt('Want privatisation', 'apartments');
+        }
 
         return $types;
 	}
@@ -1039,6 +1072,8 @@ class Apartment extends ParentModel {
 				self::PRICE_RENTING => '',
 				self::PRICE_BUY =>'',
 				self::PRICE_CHANGE => '',
+                self::PRICE_MORTGAGE => '',
+                self::PRICE_PRIVATISATION => '',
             );
         }
 
@@ -1065,7 +1100,15 @@ class Apartment extends ParentModel {
 			$price = array(
 				self::PRICE_CHANGE => '',
 			);
-		}
+		}elseif($type == self::TYPE_MORTGAGE){
+            $price = array(
+                self::PRICE_MORTGAGE => '',
+            );
+        }elseif($type == self::TYPE_PRIVATISATION){
+            $price = array(
+                self::PRICE_PRIVATISATION => '',
+            );
+        }
 
         if($with_all){
             $price[0] = tt('All');
@@ -1468,6 +1511,12 @@ class Apartment extends ParentModel {
 		if (param('useTypeChange', 1)) {
 			$return[] = self::TYPE_CHANGE;
 		}
+        if (param('useTypeMortgage', 1)) {
+            $return[] = self::TYPE_MORTGAGE;
+        }
+        if (param('useTypePrivatisation', 1)) {
+            $return[] = self::TYPE_PRIVATISATION;
+        }
 
 		return $return;
 	}
@@ -1507,6 +1556,12 @@ class Apartment extends ParentModel {
         }
         elseif(param('useTypeChange', 1)) {
             $this->type = Apartment::TYPE_CHANGE;
+        }
+        elseif(param('useTypeMortgage', 1)) {
+            $this->type = Apartment::TYPE_MORTGAGE;
+        }
+        elseif(param('useTypePrivatisation', 1)) {
+            $this->type = Apartment::TYPE_PRIVATISATION;
         }
         else
             $this->type = 0;

@@ -64,6 +64,7 @@ class MainController extends ModuleAdminController {
 
 	public function actionUpdate($id){
         $this->_model = $this->loadModel($id);
+
         $old_price = $this->_model->price;
 
         if(!$this->_model){

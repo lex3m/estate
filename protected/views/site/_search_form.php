@@ -21,7 +21,7 @@ foreach($searchFields as $search){
     //if($search->status <= SearchFormModel::STATUS_NOT_REMOVE){
         $this->renderPartial('//site/_search_field_' . $search->field, array(
                 'divClass' => $divClass,
-                'textClass' => 'width135',
+                'textClass' => 'width140',
                 'fieldClass' => 'width290 search-input-new',
                 'minWidth' => '290',
                 'isInner' => $isInner,

@@ -97,11 +97,13 @@
 				?>
 				</strong>
 			</div>
+            <?php if ($data->price_old != NULL): ?>
             <p class="old_price_p cost padding-bottom10">
-                <?php
-                echo tt('Old price', 'apartments').':&nbsp;'.$data->price_old.'&nbsp;'.param('siteCurrency', '$');;
+                <?php                                      //$data->price_old.'&nbsp;'.param('siteCurrency', '$');
+                echo tt('Old price', 'apartments').':&nbsp;'.$data->getOldPrettyPrice();
                 ?>
             </p>
+            <?php endif; ?>
 			<p class="cost padding-bottom10">
 				<?php if ($data->is_price_poa)
 						echo tt('is_price_poa', 'apartments');

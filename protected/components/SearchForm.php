@@ -130,6 +130,18 @@ class SearchForm {
 			}
 		}
 
+        if (param('useTypeMortgage', 1)) {
+            if(in_array(Apartment::PRICE_MORTGAGE, $result)){
+                $types[Apartment::PRICE_MORTGAGE] = tt('Mortgage', 'apartments');
+            }
+        }
+
+        if (param('useTypePrivatisation', 1)) {
+            if(in_array(Apartment::PRICE_PRIVATISATION, $result)){
+                $types[Apartment::PRICE_PRIVATISATION] = tt('Privatisation', 'apartments');
+            }
+        }
+
 		if (param('useTypeRent', 1)) {
 			if(in_array(Apartment::PRICE_PER_DAY, $result)){
 				$types[Apartment::PRICE_PER_DAY] = tc('rent by the day');
