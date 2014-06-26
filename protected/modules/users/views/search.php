@@ -13,16 +13,16 @@ $this->breadcrumbs=array(
 <?php
 $links = array();
 $links[] = array('label' => tc('All'), 'url' => Yii::app()->createUrl('/users/main/search', array('type' => 'all')), 'active' => $type == 'all');
-$links[] = array('label' => tc('Private persons'), 'url' => Yii::app()->createUrl('/users/main/search', array('type' => User::TYPE_PRIVATE_PERSON)), 'active' => $type == User::TYPE_PRIVATE_PERSON);
-$links[] = array('label' => tc('Agents'), 'url' => Yii::app()->createUrl('/users/main/search', array('type' => User::TYPE_AGENT)), 'active' => $type == User::TYPE_AGENT);
-$links[] = array('label' => tc('Agency'), 'url' => Yii::app()->createUrl('/users/main/search', array('type' => User::TYPE_AGENCY)), 'active' => $type == User::TYPE_AGENCY);
+//$links[] = array('label' => tc('Private persons'), 'url' => Yii::app()->createUrl('/users/main/search', array('type' => User::TYPE_PRIVATE_PERSON)), 'active' => $type == User::TYPE_PRIVATE_PERSON);
+//$links[] = array('label' => tc('Agents'), 'url' => Yii::app()->createUrl('/users/main/search', array('type' => User::TYPE_AGENT)), 'active' => $type == User::TYPE_AGENT);
+//$links[] = array('label' => tc('Agency'), 'url' => Yii::app()->createUrl('/users/main/search', array('type' => User::TYPE_AGENCY)), 'active' => $type == User::TYPE_AGENCY);
 ?>
 
 <div id="userfilter">
 <?php
-$this->widget('zii.widgets.CMenu',array(
+/*$this->widget('zii.widgets.CMenu',array(
     'items'=>$links
-));
+));*/
 ?>
 </div>
 
