@@ -1,4 +1,5 @@
-<?php /*
+<?php
+/*
 if((issetModule('location') && param('useLocation', 1))){           ?>
     <div class="<?php echo $divClass; ?>">
         <span class="search"><div class="<?php echo $textClass; ?>"><?php echo tc('Country') ?>:</div></span>
@@ -72,3 +73,4 @@ if((issetModule('location') && param('useLocation', 1))){           ?>
 
     ?>
 </div>
+*/
