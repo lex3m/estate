@@ -110,12 +110,33 @@ class MainController extends ModuleUserController {
 				'model' => $apartment,
 			));
 		} else {
+            Apartment::model()->setLastVisitedObjectsCookies($apartment->id);
 			$this->render('view', array(
 				'model' => $apartment,
 				'statistics' => Apartment::getApartmentVisitCount($apartment),
 			));
 		}
 	}
+
+    public function actionLast(){
+
+        $oldCookie = Yii::app()->request->cookies['objects'];
+        if ($oldCookie) {
+            $objectIdArray = unserialize($oldCookie);
+            $tempObjectArray = array();
+
+            foreach ($objectIdArray as $key=>$value){
+                foreach ($value as $d=>$v)
+                {
+                    array_push($tempObjectArray, $v);
+                }
+            }
+            print_r($tempObjectArray);
+         }
+
+           $apartments = Apartment::model()->findAll();
+           return $this->render('last_viewed', array('apartments'=>$apartments));
+    }
 
 	public function actionGmap($id, $model = null){
 		if($model === null){
