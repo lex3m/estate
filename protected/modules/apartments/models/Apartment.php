@@ -1624,4 +1624,44 @@ class Apartment extends ParentModel {
                 array('value'=>$value),CHtml::encode($name),true);
         }*/
     }
+
+    //устанавливает просмотры последних обьявлений
+    public function setLastVisitedObjectsCookies($apartment_id){
+        $oldCookie = Yii::app()->request->cookies['objects'];
+        $date=new DateTime();
+
+        $tempObjectArray = array();
+        $currentDate = $date->format('Y-m-d');
+        if ($oldCookie) {
+            $objectIdArray = unserialize($oldCookie);
+            if (Yii::app()->request->cookies['objects'])
+                unset(Yii::app()->request->cookies['objects']);
+            //уничтожаем через неделю
+            $one_week_ago = strtotime('-1 week');
+
+            //чистим все просмотры недельной давности
+            foreach ($objectIdArray as $key=>$value){
+                foreach ($value as $d=>$v)
+                {
+                    $timeVisitedPage = strtotime($d);
+                    if ($timeVisitedPage < $one_week_ago)
+                    {
+                        unset($value[$d]);
+                    }
+                    else
+                        array_push($tempObjectArray, $value);
+                }
+            }
+        }
+
+        //добавляем новые просмотры в массив
+        $view = array();
+        $view[$currentDate]=$apartment_id;
+        array_push($tempObjectArray, $view);
+
+        //сохраняем новые cookie
+        $newCookie = new CHttpCookie('objects', serialize($tempObjectArray));
+        $newCookie->expire = time() + (60*60*24*7);
+        Yii::app()->request->cookies['objects'] = $newCookie;
+    }
 }
