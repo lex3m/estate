@@ -99,4 +99,24 @@ class ComparisonList extends ParentModel {
 
 		return ReferenceCategories::model()->findAll($criteria);
 	}
+
+    public static function getCountFavoritesApartments() {
+        $userId = 0;
+        $sessionId = '';
+
+        if (!Yii::app()->user->isGuest)
+            $userId = Yii::app()->user->id;
+
+        $sessionId = Yii::app()->session->sessionId;
+
+        if ($userId > 0)
+            $sql = 'SELECT COUNT(id) FROM {{comparison_list}}
+                            WHERE user_id = "'.$userId.'" ';
+        else
+            $sql = 'SELECT COUNT(id) FROM {{comparison_list}}
+                            WHERE user_id = "'.$userId.'" AND session_id = "'.$sessionId.'"';
+
+        return Yii::app()->db->createCommand($sql)->queryScalar();
+
+    }
 }

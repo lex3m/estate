@@ -86,7 +86,7 @@ if ($data->canShowInView('address')) {
     }
     $adress = CHtml::encode($data->getStrByLang('address'));
     if ($adress) {
-        $adressFull .= $adress; //', ' . $adress;
+        $adressFull .= ', ' . $adress;
     }
     if ($adressFull) {
         echo '<dt>' . tt('Address') . ':</dt><dd>' . $adressFull . '</dd>';

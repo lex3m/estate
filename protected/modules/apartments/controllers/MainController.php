@@ -120,7 +120,9 @@ class MainController extends ModuleUserController {
 
     public function actionLast(){
 
-        $oldCookie = Yii::app()->request->cookies['objects'];
+        $result = array();
+        $lastViewsCount = 0;
+        /*$oldCookie = Yii::app()->request->cookies['objects'];
         if ($oldCookie) {
             $objectIdArray = unserialize($oldCookie);
             $tempObjectArray = array();
@@ -131,11 +133,29 @@ class MainController extends ModuleUserController {
                     array_push($tempObjectArray, $v);
                 }
             }
-            print_r($tempObjectArray);
-         }
+            $result = array_unique($tempObjectArray);
+            $lastViewsCount = count($result);
+        }*/
+        $lastViewedApartments = Apartment::getLastVisitedObjects();
+        if (!empty($lastViewedApartments)) {
+            $lastViewsCount = $lastViewedApartments[0];
+            $result = $lastViewedApartments[1];
+        }
 
-           $apartments = Apartment::model()->findAll();
-           return $this->render('last_viewed', array('apartments'=>$apartments));
+        $criteria = new CDbCriteria();
+        $criteria->addInCondition("t.id", $result);
+
+        if(isset($_GET['is_ajax'])){
+            $this->renderPartial('last_viewed', array(
+                'criteria' => $criteria,
+                'apCount' => $lastViewsCount,
+            ), false, true);
+        }else{
+            $this->render('last_viewed', array(
+                'criteria' => $criteria,
+                'apCount' => $lastViewsCount,
+            ));
+        }
     }
 
 	public function actionGmap($id, $model = null){

@@ -101,7 +101,7 @@
 				</div>
 				
 				<div class="katalogy shadow">
-                    <?php echo CHtml::link('Наши каталогм', array('publications/main/index'));?>
+                    <?php echo CHtml::link(tt('Our catalogs', 'common'), array('publications/main/index'));?>
 				</div>
 				
 		    </div>

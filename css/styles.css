@@ -865,7 +865,8 @@ div.apartment_count_img b {
 }
 .apartment_type_img { 
     height: 148px;
-    width: 220px;
+    /*width: 220px;*/
+    width: 170px;
     -moz-border-radius: 5px; /* Firefox */
     -webkit-border-radius: 5px; /* Safari, Chrome */
     -khtml-border-radius: 5px; /* KHTML */
@@ -1258,7 +1259,7 @@ a#click-filter-viewallonmap:hover{ text-decoration: none; font-size: 14px; color
     transform: rotate(-10deg);
     z-index: 9;
 }
-.contact-textarea {height: 115px; width: 427px;}
+.contact-textarea {height: 115px; width: 375px; resize: none;}
 
 .rss-icon {
     position: relative;

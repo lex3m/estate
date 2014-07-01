@@ -27,7 +27,7 @@ class MainController extends ModuleUserController {
 
 		$criteria= new CDbCriteria;
 		$criteria->addInCondition('t.id', Yii::app()->controller->apInComparison);
-		$result = apartmentsHelper::getApartments(param('countListingsInComparisonList', 6), 0, 0, $criteria);
+		$result = apartmentsHelper::getApartments(param('countListingsInComparisonList', 5), 0, 0, $criteria);
 
 		$apartments = null;
 
@@ -60,7 +60,7 @@ class MainController extends ModuleUserController {
 				$currCount = ComparisonList::getCountListingsUser($userId);
 			}
 
-			if ($currCount >= param('countListingsInComparisonList', 6)) {
+			if ($currCount >= param('countListingsInComparisonList', 5)) {
 				echo 'max_limit';
 				Yii::app()->end();
 			}
