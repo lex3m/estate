@@ -232,9 +232,11 @@ class Apartment extends ParentModel {
 
 			'city' => array(self::BELONGS_TO, 'ApartmentCity', 'city_id'),
 
-            'location' => array(self::BELONGS_TO, 'Location', 'location_id'), 
+            'location' => array(self::BELONGS_TO, 'Location', 'location_id'),
 
-			'windowTo' => array(self::BELONGS_TO, 'WindowTo', 'window_to'),
+            'sublocation' => array(self::BELONGS_TO, 'Sublocation', 'sublocation_id'),
+
+            'windowTo' => array(self::BELONGS_TO, 'WindowTo', 'window_to'),
 
 			'images' => array(self::HAS_MANY, 'Images', 'id_object', 'order' => 'images.sorter'),
 

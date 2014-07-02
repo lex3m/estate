@@ -86,7 +86,7 @@ class ApartmentPanorama extends ParentModel {
 		Yii::app()->clientScript->registerScript('swf-panorama-'.$this->id, '
 			$("#swf-panorama-'.$this->id.'").flash({
 				swf: "'.$url.'",
-				width: 890,
+				width: 670,
 				height: 500
 			});
 		', CClientScript::POS_READY);

@@ -170,6 +170,8 @@ class Controller extends CController {
 				'label' => '|',
 				'visible' => param('useUserads', 0) == 1
 			),
+            array('label' => tt('Special offers', 'common'), 'url' => array('/specialoffers/main/index')),
+            array('label' => tt('Search for listings on the map', 'common'), 'url' => array('/page/2')),
 			array('label' => tt('Contact us', 'common'), 'url' => array('/contactform/main/index')),
 			array('label' => '|', 'visible' => Yii::app()->user->getState('isAdmin') === null),
 			array(

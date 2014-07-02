@@ -83,6 +83,18 @@ if ($data->canShowInView('address')) {
                 $adressFull = ' ' . $cityName;
             }
         }
+        if (isset($data->location) && isset($data->location->name)) {
+            $locationName = $data->location->name;
+            if ($locationName) {
+                $adressFull = ' ' . $locationName;
+            }
+        }
+        if (isset($data->sublocation) && isset($data->sublocation->name)) {
+            $sublocationName = $data->sublocation->name;
+            if ($sublocationName) {
+                $adressFull .= ', ' . $sublocationName;
+            }
+        }
     }
     $adress = CHtml::encode($data->getStrByLang('address'));
     if ($adress) {

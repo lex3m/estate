@@ -11,7 +11,8 @@
 
 
     ?>
-    <span class="search"><div class="<?php echo $textClass; ?>" id="currency-title"><?php echo tc('Price range'); ?>:</div> </span>
+    <span class="search"><div class="<?php echo $textClass; ?>" id="currency-title"><?php echo tc('Price range'); ?> (руб.):</div>
+    </span>
 		<span class="search">
 			<?php
                 if(isset($this->objType) && $this->objType){

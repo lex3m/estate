@@ -1723,8 +1723,8 @@ ul.compare-description-ul li > span{ color: #000000;}
     width: 130px;
 }
 
-.vals .left {color: #FFFFFF; float: left; font-size: 12px;}
-.vals .right {color: #FFFFFF; float: right; font-size: 12px;}
+.vals .left {color: black; float: left; font-size: 12px;}
+.vals .right {color: black; float: right; font-size: 12px;}
 
 .slider-price-currency {float: right; color: #FFFFFF; position: relative; top: 3px; right: -5px;}
 .slider-site-square {float: right; color: #FFFFFF; position: relative; top: 3px; right: -5px;}
@@ -1881,7 +1881,7 @@ ul.compare-description-ul li > span{ color: #000000;}
 }
 
 .user-info-right {
-    width: 180px;
+    width: 190px;
     position: absolute;
     right: 0px;
 }
@@ -2356,4 +2356,67 @@ text-align: center;
 }
 .boxList .appartment_box .appartment_item .offer .row {
     position: relative;
+}
+aside h3 {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+aside .work-list {
+    line-height: 19px;
+    font-size: 15px;
+    margin-bottom: 38px;
+    padding: 0 14px 0 11px;
+}
+
+aside ul {
+    list-style: none;
+}
+aside .work-list li {
+    margin-top: 11px;
+    line-height: 20px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    width: 200px;
+}
+
+aside .work-list li:first-child {
+    margin: 0;
+}
+
+aside .work-list li a {
+    display: block;
+    background: #1634d0;
+    color: #fff;
+    text-decoration: none;
+}
+aside .work-list li a:hover {
+    text-decoration: underline;
+}
+
+aside .work-list .img-wrap {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 45px;
+    height: 41px;
+    background: #ff0101;
+}
+
+aside .work-list .discription {
+    display: table-cell;
+    padding: 0 13px;
+    font: 300 13px/21px Arial,sans-serif;
+}
+
+aside img {
+    vertical-align: top;
+    border-style: none;
+    margin: 0;
+    border: 0;
+    width: auto;
+    height: auto;
 }

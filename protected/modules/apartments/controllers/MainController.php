@@ -122,20 +122,6 @@ class MainController extends ModuleUserController {
 
         $result = array();
         $lastViewsCount = 0;
-        /*$oldCookie = Yii::app()->request->cookies['objects'];
-        if ($oldCookie) {
-            $objectIdArray = unserialize($oldCookie);
-            $tempObjectArray = array();
-
-            foreach ($objectIdArray as $key=>$value){
-                foreach ($value as $d=>$v)
-                {
-                    array_push($tempObjectArray, $v);
-                }
-            }
-            $result = array_unique($tempObjectArray);
-            $lastViewsCount = count($result);
-        }*/
         $lastViewedApartments = Apartment::getLastVisitedObjects();
         if (!empty($lastViewedApartments)) {
             $lastViewsCount = $lastViewedApartments[0];
@@ -369,16 +355,20 @@ class MainController extends ModuleUserController {
 	}
 
     public function actionGetSublocations($ap_location){
-        $data=Sublocation::model()->findAll('location_id=:location_id',
-            array(':location_id'=>(int) $ap_location));
+        if (Yii::app()->request->isAjaxRequest) {
+            $data=Sublocation::model()->findAll('location_id=:location_id',
+                array(':location_id'=>(int) $ap_location));
 
-        $data=CHtml::listData($data,'id','name');
-        $chooseTranslate = tt("Choose sublocation",'apartments');
-        array_unshift($data, $chooseTranslate);
-        foreach($data as $value=>$name)
-        {
-            echo CHtml::tag('option',
-                array('value'=>$value),CHtml::encode($name),true);
-        }
+            $data=CHtml::listData($data,'id','name');
+            $chooseTranslate = tt("Choose sublocation",'apartments');
+            array_unshift($data, $chooseTranslate);
+            foreach($data as $value=>$name)
+            {
+                echo CHtml::tag('option',
+                    array('value'=>$value),CHtml::encode($name),true);
+            }
+        } else
+            return 0;
+
     }
 }
