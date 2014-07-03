@@ -148,6 +148,13 @@ foreach ($apartments as $item) {
 							<?php echo ($inComparisonList) ? tt('In the comparison list', 'comparisonList') : tt('Add to a comparison list ', 'comparisonList');?>
 						</a>
 					</div>
+                <div class="row compare-check-control" style="float: right; margin-right: 5px; position: relative;">
+                    <?php if ($item->lat > 0 && $item->lng > 0):?>
+                        <a href="<?php echo Yii::app()->createUrl('/page/2?filterPriceType=0&filterObjType=0&filterByLat='.$item->lat.'&filterByLng='.$item->lng);?>" id="view_onmap<?php echo $item->id; ?>" target="_blank">
+                            <?php echo tt("Show on map", "apartments");?>
+                        </a>
+                    <?php endif;?>
+                </div>
 			<?php endif;?>
 		</div>
 	</div>

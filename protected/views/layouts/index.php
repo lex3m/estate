@@ -68,7 +68,7 @@
 		    </div>
 			
 			<div class="column_right">
-			    <a href="#" class="predlosheniya"><img src="/images/narezka/predlosheniya.jpg" alt="Предложения" class="shadow" /></a>
+			    <a href="<?php Yii::app()->baseUrl?>/specialoffers" class="predlosheniya"><img src="/images/narezka/predlosheniya.jpg" alt="Предложения" class="shadow" /></a>
 				
 				<div class="new-right">
                  <div class="last-news-index">

@@ -28,6 +28,9 @@ class ViewallonmapWidget extends CWidget {
 	public $filterPriceType;
 	public $filterObjType;
 
+    public $filterByLat;
+    public $filterByLng;
+
 	public function run() {
 
 		Yii::app()->getModule('apartments');
@@ -134,6 +137,18 @@ class ViewallonmapWidget extends CWidget {
 			$criteria->addCondition('obj_type_id = :filterObjType');
 			$criteria->params[':filterObjType'] = $this->filterObjType;
 		}
+
+        $this->filterByLat = Yii::app()->request->getParam('filterByLat');
+        if ($this->filterByLat) {
+            $criteria->addCondition('lat = :filterByLat');
+            $criteria->params[':filterByLat'] = $this->filterByLat;
+        }
+
+        $this->filterByLng = Yii::app()->request->getParam('filterByLng');
+        if ($this->filterByLng) {
+            $criteria->addCondition('lng = :filterByLng');
+            $criteria->params[':filterByLng'] = $this->filterByLng;
+        }
 		// end set filter
 
 		// echo filter form
