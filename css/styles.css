@@ -73,7 +73,7 @@ margin: 10px 0 0 -10px;
 
 /* Navigation */
 
-ul#nav { float: right; list-style-type: none; margin: 0px 0 0 0;}
+ul#nav { float: right; list-style-type: none; margin: 0px 0 0 0; padding: 0;}
 ul#nav li { margin: 0 9px 0 0; }
 ul#nav li a { color: #852432; display: block; }
 ul#nav li a:hover { color: #7f7467; text-decoration: underline; }
@@ -84,7 +84,7 @@ ul#nav li a:hover { color: #7f7467; text-decoration: underline; }
     list-style-type: none;
     margin: 0 auto;
     width: 1060px;
-    overflow: hidden;
+    overflow: visible;
     padding: 18px 0 1px;
     position: relative;
 }
@@ -93,7 +93,7 @@ ul#nav li a:hover { color: #7f7467; text-decoration: underline; }
     border-right: 1px dotted #C2C3C4;
     color: #FFFFFF !important;
     margin: 0 !important;
-    padding: 0 9px;
+    padding: 0 7px;
 }
 #user-cpanel li:nth-child(1) { 
     border-left: 1px dotted #C2C3C4;
@@ -538,8 +538,8 @@ div.inner-search-button-line { position: absolute; bottom: 10px; right: 22px; }
 /* DropDownMenu */
 
 ul.sub_menu_dropdown{ right:0; list-style-type: none;}
-ul.sub_menu_dropdown{ border:1px solid #d2d2d2; padding:0; background:#FFF0E0; position: absolute; top:20px;  width:220px !important; z-index:98;}
-ul.sub_menu_dropdown li{ padding-left:10px; font-size:11px; padding: 4px 0; border: none !important; background: #FFF0E0; }
+ul.sub_menu_dropdown{ border:0px solid #d2d2d2; padding:10px 10px 15px 10px; background:#737373; position: absolute; top:20px;  width:180px !important; z-index:98; border-radius: 0 0 10px 10px;}
+ul.sub_menu_dropdown li{ padding-left:10px; font-size:11px; padding: 4px 0; border: none !important; background: #737373; }
 ul.sub_menu_dropdown li:hover{ text-decoration: underline; }
 
 /*
@@ -557,11 +557,11 @@ ul.dropDownNav li.hover, ul.dropDownNav li a:hover  { outline: none; text-decora
 /*
 	LEVEL TWO
 */
-ul.dropDownNav ul { width: 220px; visibility: hidden; /*display:none;*/ position: absolute; top: 100%; /*left: 0;*/ right: 0; z-index: 10000;}
+ul.dropDownNav ul { width: 220px; visibility: hidden; /*display:none;*/ position: absolute; top: 100%; /*left: 0;*/ left: 0; z-index: 10000;}
 ul.dropDownNav ul li { font-weight: normal; float: none; padding:4px 8px; }
 
 /* IE 6 & 7 Needs Inline Block */
-ul.dropDownNav ul li a { font-size: 14px; border-right: none; width: 100%; display: block; padding: 0;}
+ul.dropDownNav ul li a { font-size: 14px; border-right: none; width: 100%; display: block; padding: 0 0 4px; font-weight: normal !important;}
 
 /*
 	LEVEL THREE
@@ -825,9 +825,9 @@ div.column3 { width: 295px; float: left;}
 
 .ratingview {float:left;	padding-left:10px;padding-top: 2px;}
 
-.viewapartment-main-photo { float: left; padding-top: 5px; margin: 0 15px 10px 0;}
+.viewapartment-main-photo { float: left; padding-top: 5px; margin: 0 15px 10px 0; width: 100%;}
 .viewapartment-no-photo {padding-left: 0px !important;}
-.viewapartment-description-top { 	padding: 0 0 0 310px; }
+.viewapartment-description-top { float: left; }
 .old_price_p {
     text-decoration: line-through;
 	background: none repeat scroll 0 0 #CCCCCC !important;
@@ -907,7 +907,8 @@ div.apartment_count_img b {
 	color: #FFFFFF !important;
 	min-height: 27px !important;
 	margin: 0 2px !important;
-	padding: 4px 8px 4px !important;
+	padding: 4px 5px 4px !important;
+	font-weight: normal;
 	background-color: #274f8c !important;
 	background-image: -moz-linear-gradient(top, #274f8c 0%, #5b90df 100%) !important;
 	background-image: -webkit-linear-gradient(top, #274f8c 0%, #5b90df 100%) !important;
@@ -1017,13 +1018,13 @@ div.news-items p.dalee a:hover, div.articles-index p.desc a:hover {
 font.title, span.title	{font:14px/20px 'Roboto', Arial, sans-serif; color:#000; font-weight: bold;}
 
 .search-input-new, .searchField {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #DDDDDD;
-    border-radius: 7px;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 7px 0 0 7px;
+    color: #959595;
     margin-top: 3px;
     padding: 4px 5px 4px 1px;
-    width: 238px;
-	color: #959595;
+    width: 236px;
 }
 #search_form.index-header-form div.header-form-line select#selectSublocation.height17 {
     height: 29px;
@@ -1366,7 +1367,9 @@ a.apt_btn:hover {
 }
 
 .info-tabs {
-    clear:both;
+    float: right;
+	width: 100%;
+	background: #fff;
 }
 
 .info-tabs .ui-tabs-nav .ui-state-active a{
@@ -1848,11 +1851,11 @@ ul.compare-description-ul li > span{ color: #000000;}
     padding: 0;
 }
 .apartment-user-info {
-    background-color: #FFFFFF;
-    margin: 0 0 20px;
-    position: relative;
+    background-color: #ffffff;
+    position: absolute;
     right: 0;
-    top: 0;
+    top: 25px;
+    width: 301px;
 }
 .apartment-description div.viewapartment-main-photo a img {
     width: 271px;
@@ -1868,7 +1871,7 @@ ul.compare-description-ul li > span{ color: #000000;}
 .apartment-description div.viewapartment-description-top div.overflow-auto div {
     margin-top: 10px;
 }
-.apartment-user-info.top50 { top: 50px; }
+.apartment-user-info.top50 { top: 70px; }
 
 .user-ava-username {
     text-align: center;
@@ -2419,4 +2422,42 @@ aside img {
     border: 0;
     width: auto;
     height: auto;
+}
+.ui-tabs .ui-tabs-nav li a {
+    padding: 3px 8px;
+}
+.rowold select {
+   border-radius: 7px 0 0 7px !important;
+   width: 250px;
+}
+.rowold select#UserAds_num_of_rooms {
+    width: 114px;
+}
+.rowold select#UserAds_floor, .rowold select#UserAds_floor_total {
+    width: 50px;
+}
+.rowold select#UserAds_window_to {
+    width: 167px;
+}
+.row select#SimpleformModel_location_booking, .row select#SimpleformModel_subLocation_booking {
+    border-radius: 7px 0 0 7px !important;
+    width: 199px;
+}
+.form.min-fancy-width.max-fancy-width form#yw0 table {
+    width: 300px;
+}
+.row input#SimpleformModel_berths, .row input#SimpleformModel_square, .row input#SimpleformModel_budget {
+    width: 183px;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: #2762C1;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: #eb8f00;
+}
+.ui-state-default a:hover {
+     color: #9A4300;
+}
+#yw0 {
+    background: url("../images/narezka/klu4i.png") no-repeat scroll right 150px;
 }
