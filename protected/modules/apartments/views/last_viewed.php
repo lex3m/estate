@@ -1,4 +1,4 @@
- 
+
 <div class="title_list">
     <h2><?php echo tc('Last viewed apartments'); ?><h2>
     <div class="change_list_show">
