@@ -81,6 +81,18 @@
 											$adressFull = ' '.$cityName;
 										}
 									}
+                                    if (isset($item->location) && isset($item->location->name)) {
+                                        $locationName = $item->location->name;
+                                        if ($locationName) {
+                                            $adressFull = ' ' . $locationName;
+                                        }
+                                    }
+                                    if (isset($item->sublocation) && isset($item->sublocation->name)) {
+                                        $sublocationName = $item->sublocation->name;
+                                        if ($sublocationName) {
+                                            $adressFull .= ', ' . $sublocationName;
+                                        }
+                                    }
 								}
 								$adress = CHtml::encode($item->getStrByLang('address'));
 								if($adress){

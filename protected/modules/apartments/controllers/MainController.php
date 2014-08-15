@@ -120,22 +120,28 @@ class MainController extends ModuleUserController {
 
     public function actionLast(){
 
-        $oldCookie = Yii::app()->request->cookies['objects'];
-        if ($oldCookie) {
-            $objectIdArray = unserialize($oldCookie);
-            $tempObjectArray = array();
+        $result = array();
+        $lastViewsCount = 0;
+        $lastViewedApartments = Apartment::getLastVisitedObjects();
+        if (!empty($lastViewedApartments)) {
+            $lastViewsCount = $lastViewedApartments[0];
+            $result = $lastViewedApartments[1];
+        }
 
-            foreach ($objectIdArray as $key=>$value){
-                foreach ($value as $d=>$v)
-                {
-                    array_push($tempObjectArray, $v);
-                }
-            }
-            print_r($tempObjectArray);
-         }
+        $criteria = new CDbCriteria();
+        $criteria->addInCondition("t.id", $result);
 
-           $apartments = Apartment::model()->findAll();
-           return $this->render('last_viewed', array('apartments'=>$apartments));
+        if(isset($_GET['is_ajax'])){
+            $this->renderPartial('last_viewed', array(
+                'criteria' => $criteria,
+                'apCount' => $lastViewsCount,
+            ), false, true);
+        }else{
+            $this->render('last_viewed', array(
+                'criteria' => $criteria,
+                'apCount' => $lastViewsCount,
+            ));
+        }
     }
 
 	public function actionGmap($id, $model = null){
@@ -349,16 +355,20 @@ class MainController extends ModuleUserController {
 	}
 
     public function actionGetSublocations($ap_location){
-        $data=Sublocation::model()->findAll('location_id=:location_id',
-            array(':location_id'=>(int) $ap_location));
+        if (Yii::app()->request->isAjaxRequest) {
+            $data=Sublocation::model()->findAll('location_id=:location_id',
+                array(':location_id'=>(int) $ap_location));
 
-        $data=CHtml::listData($data,'id','name');
-        $chooseTranslate = tt("Choose sublocation",'apartments');
-        array_unshift($data, $chooseTranslate);
-        foreach($data as $value=>$name)
-        {
-            echo CHtml::tag('option',
-                array('value'=>$value),CHtml::encode($name),true);
-        }
+            $data=CHtml::listData($data,'id','name');
+            $chooseTranslate = tt("Choose sublocation",'apartments');
+            array_unshift($data, $chooseTranslate);
+            foreach($data as $value=>$name)
+            {
+                echo CHtml::tag('option',
+                    array('value'=>$value),CHtml::encode($name),true);
+            }
+        } else
+            return 0;
+
     }
 }

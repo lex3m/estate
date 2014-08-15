@@ -295,6 +295,8 @@ class User extends ParentModel {
 //				$this->$additionalInfo = nl2br($this->$additionalInfo);
 //			}
 //		}
+        //fix for not null default value temprecoverpassword
+        $this->temprecoverpassword = '';
         $this->type = ( $this->type && in_array($this->type, self::getTypeList('key')) ) ? $this->type : User::TYPE_PRIVATE_PERSON;
 
 		return parent::beforeSave();

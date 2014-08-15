@@ -58,7 +58,7 @@ $this->breadcrumbs=array(
 
     <div class="row">
     <?php echo $form->labelEx($model,'body'); ?>
-        <?php echo $form->textArea($model,'body',array('rows' => 3, 'cols' => 50, 'class' => 'contact-textarea')); ?>
+        <?php echo $form->textArea($model,'body',array('rows' => 5, 'cols' => 50, 'class' => 'contact-textarea')); ?>
         <?php echo $form->error($model,'body'); ?>
     </div>
 

@@ -2,7 +2,7 @@
 <?php
 echo '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>';
 echo '<td>';
-echo '<img src="' . Yii::app()->getBaseUrl(true) . '/images/pages/logo-open-ore.png" />';
+echo '<img src="' . Yii::app()->getBaseUrl(true) . '/images/narezka/logo1.png" />';
 echo '</td>';
 echo '<td align="right">';
 $this->widget('application.extensions.qrcode.QRCodeGenerator', array(

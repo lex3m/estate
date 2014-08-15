@@ -53,7 +53,7 @@ if (issetModule('comparisonList')) {
 									$("#compare_check"+apId).prop("checked", false);
 
 									if (html == "max_limit") {
-										$("#compare_label"+apId).html("'.Yii::t("module_comparisonList", "max_limit", array('{n}' => param('countListingsInComparisonList', 6))).'");
+										$("#compare_label"+apId).html("'.Yii::t("module_comparisonList", "max_limit", array('{n}' => param('countListingsInComparisonList', 5))).'");
 									}
 									else {
 										$("#compare_label"+apId).html("'.tc("Error").'");

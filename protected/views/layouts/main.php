@@ -185,13 +185,21 @@ $baseUrl = Yii::app()->baseUrl;
 		        </div>
 				
 				<div class="zayavka shadow">
-				    <a href="/booking/request">Заявка на подбор</a>
+				    <a href="<?php echo $baseUrl; ?>/booking/request"><?php echo tt('Application selection', 'common');?></a>
 				</div>
+                <?php $lastViewedApartmentCount = Apartment::getLastVisitedObjects();
+                    if ($lastViewedApartmentCount[0] > 0): ?>
+                    <div class="zayavka shadow">
+                        <a href="<?php echo $baseUrl; ?>/apartments/main/last"><?php echo tt('My views', 'common'). ' ('. $lastViewedApartmentCount[0] . ')'?></a>
+                    </div>
+				<?php endif;?>
+                <?php $lastFavoritesApartmentCount = ComparisonList::getCountFavoritesApartments();
+                if ($lastFavoritesApartmentCount > 0): ?>
+                    <div class="zayavka shadow">
+                        <a href="<?php echo $baseUrl; ?>/comparisonList"><?php echo tt('My favorites', 'common'). ' ('. $lastFavoritesApartmentCount . ')'?></a>
+                    </div>
+                <?php endif;?>
 
-                <div class="zayavka shadow">
-                    <a href="/apartments/main/last">Мои просмотры</a>
-                </div>
-				
 				<?php $this->widget('TypesEstateWidget', array()); ?>
 				
 				<a class="tury" href="#">
@@ -227,7 +235,7 @@ $baseUrl = Yii::app()->baseUrl;
 			
 			
 			<div class="footer_left">
-			    <a href="/" class="logo_niz"><img id="logo" width="278" height="71" src="/images/narezka/logo_footer.png" alt="Сайт по аренде и продже квартир"></a>
+			    <a href="<?php echo $baseUrl; ?>" class="logo_niz"><img id="logo" width="278" height="71" src="<?php echo $baseUrl; ?>/images/narezka/logo_footer.png" alt="Сайт по аренде и продже квартир"></a>
 			    <div class="niz_kontakt">
 				    8(495) 212-93-92<br />
 					<span>Москва, ул Строителей 25, <br />оф. 408</span>

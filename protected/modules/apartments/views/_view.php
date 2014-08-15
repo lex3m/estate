@@ -116,9 +116,9 @@
             <?php endif; ?>
 			<div class="overflow-auto">
 				<?php
-					if(($data->owner_id != Yii::app()->user->getId()) && $data->type == 1){
+					/*if(($data->owner_id != Yii::app()->user->getId()) && $data->type == 1){
 						echo '<div>'.CHtml::link(tt('Booking'), array('/booking/main/bookingform', 'id' => $data->id), array('class' => 'apt_btn fancy')).'</div><div class="clear"></div>';
-					}
+					}*/
 
 
 					if(issetModule('apartmentsComplain')){

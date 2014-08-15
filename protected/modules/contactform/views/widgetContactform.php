@@ -44,7 +44,7 @@
 		echo '<p>'.tt('Address', 'contactform').': '.param('adminAddress').'</p>';
 	}
 ?>
-
+<img src="<?php echo Yii::app()->request->baseUrl;?>/images/adres1.jpg" alt="адрес стоматологического центра" title="адрес стоматологического центра" width="600" height="338" style="margin: 5px;">
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'contact-form',
@@ -79,7 +79,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'body'); ?>
-		<?php echo $form->textArea($model,'body',array('rows'=>3, 'cols'=>50, 'class' => 'contact-textarea')); ?>
+		<?php echo $form->textArea($model,'body',array('rows'=>5, 'cols'=>50, 'class' => 'contact-textarea')); ?>
 		<?php echo $form->error($model,'body'); ?>
 	</div>
 
@@ -110,6 +110,10 @@
 		<?php echo CHtml::submitButton(tt('Send message', 'contactform')); ?>
 	</div>
 
-<?php $this->endWidget(); ?>
+    <div class="row" style="margin-bottom: 10px; margin-top: 10px;">
+        <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=zgmZ04ebqfCCIh5rsBbv0J-FaBh1c04s&width=600&height=450"></script>
+    </div>
+
+    <?php $this->endWidget(); ?>
 
 </div>

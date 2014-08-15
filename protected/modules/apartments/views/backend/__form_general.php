@@ -22,8 +22,8 @@
                     //Style: CController::createUrl('currentController/methodToCall')
                     'data'=>'js:"ap_location="+$("#ap_location").val()',
                     'success'=>'function(result){
-								$("#Apartment_sublocation_id").html(result);
-								$("#Apartment_sublocation_id").change();
+								$("#ap_sublocation").html(result);
+								$("#ap_sublocation").change();
 							}'
                     //leave out the data key to pass all form values through
                 )
@@ -36,15 +36,14 @@
 
     <div class="rowold"  id="sublocation_row" <?php
     $valueSubLocation = Apartment::getSublocationsOfLocation($model->location_id);
-    if ($model->sublocation_id==0){
-    } else {
+    if ($model->sublocation_id != 0){
         Yii::app()->clientScript->registerScript('selectSublocation',"
             $('select[name=\'options\']').find('option[value=\'".$model->sublocation_id."\']').attr('selected',true);
         ");
     }
     ?>>
         <?php echo $form->labelEx($model, 'sublocation_id'); ?>
-        <?php echo $form->dropDownList($model, 'sublocation_id', $valueSubLocation, array('class' => 'width240')); ?>
+        <?php echo $form->dropDownList($model, 'sublocation_id', $valueSubLocation, array('id'=>'ap_sublocation', 'class' => 'width240')); ?>
         <?php echo $form->error($model, 'sublocation_id'); ?>
     </div>
 

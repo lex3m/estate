@@ -218,9 +218,9 @@ class SearchForm {
         echo CHtml::hiddenField($params['field'].'_min', $params['min_sel']);
         echo CHtml::hiddenField($params['field'].'_max', $params['max_sel']);
 
-        if(isset($params['measure_unit']) && $params['measure_unit']){
+       /* if(isset($params['measure_unit']) && $params['measure_unit']){
             echo '<div class="slider-price-currency">'.$params['measure_unit'].'</div>';
-        }
+        }*/
 
         // for javascript
         $intValues = array('min', 'max', 'min_sel', 'max_sel', 'step');

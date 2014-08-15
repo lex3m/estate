@@ -114,7 +114,7 @@ if(!Yii::app()->request->isAjaxRequest){
 	}
 ?>
 
-<div class="appartment_box" id="appartment_box">
+<div class="appartment_box" id="appartment_box" style="width: 640px;">
 	<?php
 	if ($apCount) {
 

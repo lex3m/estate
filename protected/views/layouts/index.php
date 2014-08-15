@@ -68,7 +68,7 @@
 		    </div>
 			
 			<div class="column_right">
-			    <a href="#" class="predlosheniya"><img src="/images/narezka/predlosheniya.jpg" alt="Предложения" class="shadow" /></a>
+			    <a href="<?php Yii::app()->baseUrl?>/specialoffers" class="predlosheniya"><img src="/images/narezka/predlosheniya.jpg" alt="Предложения" class="shadow" /></a>
 				
 				<div class="new-right">
                  <div class="last-news-index">
@@ -101,9 +101,45 @@
 				</div>
 				
 				<div class="katalogy shadow">
-                    <?php echo CHtml::link('Наши каталогм', array('publications/main/index'));?>
+                    <?php echo CHtml::link(tt('Our catalogs', 'common'), array('publications/main/index'));?>
 				</div>
-				
+                <aside>
+                    <div class="all-projects">
+                        <h3>Наши проекты</h3>
+                        <ul class="work-list">
+                            <li>
+                                <a href="http://dentalsolutions.ru/" target="_blank">
+                                    <span class="img-wrap"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/tooth.png" alt="tooth"></span>
+                                    <span class="discription">Стоматологический кредитный центр</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="img-wrap"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/travel.png" alt="travel"></span>
+                                    <span class="discription">Туристический кредитный центр</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="img-wrap"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/avto.png" alt="avto"></span>
+                                    <span class="discription">Автокредитный центр</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="img-wrap"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/credit.png" alt="credit"></span>
+                                    <span class="discription">Образовательный кредитный центр</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="img-wrap"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/null-center.png" alt="null-center"></span>
+                                    <span class="discription">Нецелевой кредитный центр</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
 		    </div>
 	    </div>
 			

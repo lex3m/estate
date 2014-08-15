@@ -232,9 +232,11 @@ class Apartment extends ParentModel {
 
 			'city' => array(self::BELONGS_TO, 'ApartmentCity', 'city_id'),
 
-            'location' => array(self::BELONGS_TO, 'Location', 'location_id'), 
+            'location' => array(self::BELONGS_TO, 'Location', 'location_id'),
 
-			'windowTo' => array(self::BELONGS_TO, 'WindowTo', 'window_to'),
+            'sublocation' => array(self::BELONGS_TO, 'Sublocation', 'sublocation_id'),
+
+            'windowTo' => array(self::BELONGS_TO, 'WindowTo', 'window_to'),
 
 			'images' => array(self::HAS_MANY, 'Images', 'id_object', 'order' => 'images.sorter'),
 
@@ -1648,8 +1650,9 @@ class Apartment extends ParentModel {
                     {
                         unset($value[$d]);
                     }
-                    else
+                    else {
                         array_push($tempObjectArray, $value);
+                    }
                 }
             }
         }
@@ -1664,4 +1667,27 @@ class Apartment extends ParentModel {
         $newCookie->expire = time() + (60*60*24*7);
         Yii::app()->request->cookies['objects'] = $newCookie;
     }
+
+    public static function getLastVisitedObjects()
+    {
+        $result = array();
+        $lastViewsCount = 0;
+        $oldCookie = Yii::app()->request->cookies['objects'];
+        if ($oldCookie) {
+            $objectIdArray = unserialize($oldCookie);
+            $tempObjectArray = array();
+
+            foreach ($objectIdArray as $key=>$value){
+                foreach ($value as $d=>$v)
+                {
+                    array_push($tempObjectArray, $v);
+                }
+            }
+            $result = array_unique($tempObjectArray);
+            $lastViewsCount = count($result);
+        }
+
+        return array($lastViewsCount, $result);
+    }
+
 }
