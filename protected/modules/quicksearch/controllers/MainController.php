@@ -181,10 +181,21 @@ class MainController extends ModuleUserController {
 
         $location = (int) Yii::app()->request->getParam('location_id');
         $subLocation = (int) Yii::app()->request->getParam('sublocation_id');
+        $region = (int) Yii::app()->request->getParam('region_id');
         if($subLocation) {
-            $criteria->addCondition('sublocation_id = :sublocation_id AND location_id = :location_id');
-            $criteria->params[':sublocation_id'] = $subLocation;
-            $criteria->params[':location_id'] = $location;
+            if (empty($region))
+            {
+                $criteria->addCondition('sublocation_id = :sublocation_id AND location_id = :location_id');
+                $criteria->params[':sublocation_id'] = $subLocation;
+                $criteria->params[':location_id'] = $location;
+            }
+            else
+            {
+                $criteria->addCondition('sublocation_id = :sublocation_id AND region_id = :region_id');
+                $criteria->params[':sublocation_id'] = $subLocation;
+                $criteria->params[':region_id'] = $region;
+            }
+
         }
         elseif($location) {
             $criteria->addCondition('location_id = :location_id');

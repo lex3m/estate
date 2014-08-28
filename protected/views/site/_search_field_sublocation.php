@@ -16,14 +16,7 @@ echo CHtml::dropDownList(
             'url'=>$this->createUrl('/apartments/main/getSublocations'), //url to call.
             'data'=>'js:"ap_location="+$("#country").val()',
             'success'=>"function(result) {
-                           // var obj = jQuery.parseJSON(result);
-                        //   $('#selectSublocation').empty();
-                        //   $.each( obj, function( key, value ) {
-                         //       $('#selectSublocation').append(
-                        //        '<option value=\"'+value.id+'\">'+value.name+'</option>'
-                         //       )
-//
-                          //  });
+
                           $('#selectSublocation').html(result);
 						  $('#selectSublocation').change();
 						}"
@@ -42,7 +35,27 @@ echo CHtml::dropDownList(
         'sublocation_id',
         '',
         array(),
-        array('id'=>'selectSublocation','class' => 'width285 height17 searchField') //$fieldClass.
+        array(
+            'id'=>'selectSublocation',
+            'class' => 'width285 height17 searchField',
+        'ajax' => array(
+        'type'=>'GET', //request type
+        'url'=>$this->createUrl('/apartments/main/getRegions'), //url to call.
+        'data'=>'js:"sublocationID="+$("#selectSublocation").val()',
+        'success'=>"function(result) {
+                            if (result!='<option value=\"0\">Выберите регион</option>')
+                            {
+                                $('#selectRegion').parent().css('display', 'block');
+                                $('#selectRegion').html(result);
+                                $('#selectRegion').change();
+						    }
+						    else
+						    {
+						        $('#selectRegion').parent().css('display', 'none');
+						    }
+
+						}"
+    )) //$fieldClass.
     );
 
     SearchForm::setJsParam('cityField', array('minWidth' => $minWidth)); //

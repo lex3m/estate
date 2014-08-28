@@ -361,8 +361,35 @@ class MainController extends ModuleUserController {
 
             $data=CHtml::listData($data,'id','name');
             $chooseTranslate = tt("Choose sublocation",'apartments');
-            array_unshift($data, $chooseTranslate);
-            foreach($data as $value=>$name)
+
+            $new_data = array();
+            $new_data[0]=$chooseTranslate;
+            foreach($data as $key=>$value){
+                $new_data[$key] = $value;
+            }
+            foreach( $new_data as $value=>$name)
+            {
+                echo CHtml::tag('option',
+                    array('value'=>$value),CHtml::encode($name),true);
+            }
+        } else
+            return 0;
+
+    }
+
+    public function actionGetRegions(){
+        if (Yii::app()->request->isAjaxRequest) {
+            $data=Region::model()->findAll('sublocationID=:sublocationID',
+                array(':sublocationID'=>(int) $_GET['sublocationID']));
+
+            $data=CHtml::listData($data,'id','name');
+            $chooseTranslate = Yii::t('common', 'Select region');
+            $new_data = array();
+            $new_data[0]=$chooseTranslate;
+            foreach($data as $key=>$value){
+                $new_data[$key] = $value;
+            }
+            foreach($new_data as $value=>$name)
             {
                 echo CHtml::tag('option',
                     array('value'=>$value),CHtml::encode($name),true);

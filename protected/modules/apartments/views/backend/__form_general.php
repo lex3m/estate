@@ -42,10 +42,39 @@
         ");
     }
     ?>>
+
         <?php echo $form->labelEx($model, 'sublocation_id'); ?>
-        <?php echo $form->dropDownList($model, 'sublocation_id', $valueSubLocation, array('id'=>'ap_sublocation', 'class' => 'width240')); ?>
+        <?php echo $form->dropDownList($model, 'sublocation_id', $valueSubLocation, array(
+            'id'=>'ap_sublocation',
+            'class' => 'width240',
+            'ajax' => array(
+                'type'=>'GET', //request type
+                'url'=>$this->createUrl('/apartments/main/getRegions'), //url to call.
+                'data'=>'js:"sublocationID="+$("#ap_sublocation").val()',
+                'success'=>"function(result) {
+                            if (result!='<option value=\"0\">Выберите регион</option>')
+                            {
+                                $('#ap_region').parent().css('display', 'block');
+                                $('#ap_region').html(result);
+                                $('#ap_region').change();
+						    }
+						    else
+						    {
+						        $('#ap_region').parent().css('display', 'none');
+						    }
+
+						}"
+            )
+        )); ?>
         <?php echo $form->error($model, 'sublocation_id'); ?>
     </div>
+
+
+<div class="rowold" style="display:none" id="region_row" >
+    <?php echo $form->labelEx($model, 'region_id'); ?>
+    <?php echo $form->dropDownList($model, 'region_id', array(), array('id'=>'ap_region', 'class' => 'width240')); ?>
+    <?php echo $form->error($model, 'region_id'); ?>
+</div>
 
 
 

@@ -145,7 +145,8 @@
 							array('label' => tc('Top menu items'), 'icon' => 'icon-file', 'url' => $baseUrl . '/menumanager/backend/main/admin', 'active' => isActive('menumanager')),
 							array('label' => tc('Info pages'), 'icon' => 'icon-file', 'url' => $baseUrl . '/infopages/backend/main/admin', 'active' => isActive('infopages')),
                             array('label' => tc('Publications'), 'icon' => 'icon-file', 'url' => $baseUrl . '/publications/backend/main/admin', 'active' => isActive('publications')),
- 
+                            array('label' => tc('Locations'), 'icon' => 'icon-file', 'url' => $baseUrl . '/locations/backend/main/list', 'active' => isActive('locations')),
+
 							array('label' => tc('References')),
 							array('label' => tc('Categories of references'), 'icon' => 'icon-asterisk', 'url' => $baseUrl . '/referencecategories/backend/main/admin', 'active' => isActive('referencecategories')),
 							array('label' => tc('Values of references'), 'icon' => 'icon-asterisk', 'url' => $baseUrl . '/referencevalues/backend/main/admin', 'active' => isActive('referencevalues')),

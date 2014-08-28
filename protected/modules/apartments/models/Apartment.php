@@ -113,7 +113,7 @@ class Apartment extends ParentModel {
 			array('id', 'safe', 'on' => 'search'),
 			array('floor', 'myFloorValidator'),
 			array('is_price_poa', 'boolean'),
-			array('in_currency, owner_active, num_of_rooms, is_special_offer, is_free_from, is_free_to, active, metroStations, note, period_activity, sublocation_id', 'safe'),
+			array('in_currency, owner_active, num_of_rooms, is_special_offer, is_free_from, is_free_to, active, metroStations, note, period_activity, sublocation_id, region_id', 'safe'),
 			array($this->getI18nFieldSafe(), 'safe'),
 			array('city_id, owner_active, active, type, obj_type_id, ownerEmail, ownerUsername, popularity', 'safe', 'on' => 'search'),
 
@@ -371,6 +371,7 @@ class Apartment extends ParentModel {
             'period_activity' => tt("Period of listing's activity", 'apartments'),
             'location_id' => tt("Location",'apartments'),
             'sublocation_id' => tt("Sublocation",'apartments'),
+            'region_id' => Yii::t('common', 'Select region'),
 		);
 	}
 
@@ -1688,6 +1689,17 @@ class Apartment extends ParentModel {
         }
 
         return array($lastViewsCount, $result);
+    }
+
+    function excerpt($content,$numberOfWords = 70){
+        $content = preg_replace("/<img[^>]+\>/i", "", $content);
+        $contentWords = substr_count($content," ") + 1;
+        $words = explode(" ",$content,($numberOfWords+1));
+        if( $contentWords > $numberOfWords ){
+            $words[count($words) - 1] = '...';
+        }
+        $excerpt = join(" ",$words);
+        return $excerpt;
     }
 
 }
